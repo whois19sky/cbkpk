@@ -40,26 +40,47 @@ export default function BookingPage() {
 
   const [bookingId, setBookingId] = useState("");
 
+  // A booking lead should never be blocked by a database hiccup — these are the
+  // fallback room types shown immediately. If Supabase is reachable, they get
+  // silently replaced with live data (accurate prices) a moment later.
+  const FALLBACK_ROOMS: Room[] = [
+    { id: "fallback-dorm", name: "The Social Dorms", slug: "social-dorms", tagline: "Best Value. Zero Cap.", description: "AC capsule-style dorm bunks with privacy curtains and personal lockers.", price_per_night: 499, capacity: 8, features: ["Air Conditioned", "Privacy Curtains", "Personal Lockers", "Free WiFi"], images: ["/images/Dorm1.webp"], is_active: true, sort_order: 1, created_at: "" },
+    { id: "fallback-private", name: "Private Ensuite", slug: "private-ensuite", tagline: "Privacy, Priced Fair.", description: "Your own room and bathroom, AC, king bed.", price_per_night: 1999, capacity: 2, features: ["En-suite Bathroom", "King Size Bed", "Air Conditioned", "Free WiFi"], images: ["/images/private room.webp"], is_active: true, sort_order: 2, created_at: "" },
+    { id: "fallback-bunk", name: "Bunk Beds", slug: "bunk-beds", tagline: "The Cheapest Good Night's Sleep in Kolkata.", description: "Simple, clean AC bunk beds in a shared space.", price_per_night: 399, capacity: 6, features: ["Air Conditioned", "Shared Bathroom", "Personal Lockers", "Free WiFi"], images: ["/images/Dorm1.webp"], is_active: true, sort_order: 3, created_at: "" },
+    { id: "fallback-apartment", name: "Deluxe Apartment", slug: "deluxe-apartment", tagline: "For Groups & Long Stays.", description: "Fully furnished apartment with a real kitchen and living room.", price_per_night: 3499, capacity: 4, features: ["Full Kitchen", "Living Room", "Air Conditioned", "Free WiFi"], images: ["/images/private1.webp"], is_active: true, sort_order: 4, created_at: "" },
+  ];
+
   useEffect(() => {
+    // Show fallback rooms immediately — the form is usable from the first render,
+    // with no loading state and no dependency on Supabase being reachable.
+    setRooms(FALLBACK_ROOMS);
+    setLoading(false);
+
     async function fetchRooms() {
-      const { data, error } = await supabase
-        .from('rooms')
-        .select('*')
-        .eq('is_active', true)
-        .order('sort_order', { ascending: true });
+      try {
+        const { data, error } = await supabase
+          .from('rooms')
+          .select('*')
+          .eq('is_active', true)
+          .order('sort_order', { ascending: true });
 
-      if (error) {
-        console.error("Failed to fetch rooms:", error);
-      }
-
-      if (data) {
-        setRooms(data);
-        if (preselectedRoomId) {
-          const room = data.find(r => r.id === preselectedRoomId || r.slug === preselectedRoomId);
-          if (room) setSelectedRoom(room);
+        if (error) {
+          console.error("Live room fetch failed, keeping fallback list:", error);
+          return;
         }
+
+        // Only replace the fallback list if we actually got real rooms back —
+        // an empty or failed fetch should never leave the guest with nothing to pick.
+        if (data && data.length > 0) {
+          setRooms(data);
+          if (preselectedRoomId) {
+            const room = data.find(r => r.id === preselectedRoomId || r.slug === preselectedRoomId);
+            if (room) setSelectedRoom(room);
+          }
+        }
+      } catch (err) {
+        console.error("Live room fetch threw, keeping fallback list:", err);
       }
-      setLoading(false);
     }
     fetchRooms();
   }, [preselectedRoomId, supabase]);
@@ -92,18 +113,20 @@ export default function BookingPage() {
     if (!selectedRoom) return;
 
     const toastId = toast.loading("Processing booking...");
-    
+    const newBookingId = uuidv4();
+    setBookingId(newBookingId);
+
+    // Try to save to Supabase for the admin panel's records. This is a nice-to-have —
+    // if it fails for any reason (Supabase down, misconfigured, etc.), the guest's
+    // booking request must still go through to WhatsApp. We never block the core
+    // conversion action on a database write succeeding.
     try {
-      // 1. Create booking in Supabase
-      const newBookingId = uuidv4();
-      setBookingId(newBookingId);
-      
       const { error } = await supabase.from('bookings').insert({
         id: newBookingId,
         guest_name: guestDetails.name,
         guest_email: guestDetails.email,
         guest_phone: guestDetails.phone,
-        room_id: selectedRoom.id,
+        room_id: selectedRoom.id.startsWith("fallback-") ? null : selectedRoom.id,
         check_in: checkInDate,
         check_out: checkOutDate,
         guests_count: guestsCount,
@@ -111,11 +134,9 @@ export default function BookingPage() {
         status: 'pending',
         whatsapp_sent: false
       });
-
       if (error) throw error;
 
-      // Mirror to Google Sheets for the team's records. Non-blocking — a sync
-      // failure here should never stop the guest's booking from going through.
+      // Mirror to Google Sheets too — also non-blocking.
       fetch("/api/google/sync-booking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -133,24 +154,22 @@ export default function BookingPage() {
           status: "pending",
         }),
       }).catch((err) => console.error("Google Sheets sync failed:", err));
-
-      // 2. Generate WhatsApp message
-      const total = calculateTotal();
-      const message = `*NEW BOOKING REQUEST*%0A%0A*Name:* ${guestDetails.name}%0A*Room:* ${selectedRoom.name}%0A*Check-in:* ${checkInDate}%0A*Check-out:* ${checkOutDate}%0A*Guests:* ${guestsCount}%0A*Est. Total:* ₹${total}%0A%0A*Ref ID:* ${newBookingId.split('-')[0]}`;
-      
-      // 3. Move to success step
-      toast.success("Booking request created!", { id: toastId });
-      setStep(4);
-      
-      // 4. Open WhatsApp
-      setTimeout(() => {
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
-      }, 1500);
-
     } catch (error) {
-      console.error(error);
-      toast.error("Failed to process booking. Please try again.", { id: toastId });
+      // Log it, but keep going — the guest still needs to reach WhatsApp.
+      console.error("Booking record save failed (continuing to WhatsApp regardless):", error);
     }
+
+    // Generate WhatsApp message and send the guest there — this always happens,
+    // regardless of whether the database write above succeeded.
+    const total = calculateTotal();
+    const message = `*NEW BOOKING REQUEST*%0A%0A*Name:* ${guestDetails.name}%0A*Room:* ${selectedRoom.name}%0A*Check-in:* ${checkInDate}%0A*Check-out:* ${checkOutDate}%0A*Guests:* ${guestsCount}%0A*Est. Total:* ₹${total}%0A%0A*Ref ID:* ${newBookingId.split('-')[0]}`;
+
+    toast.success("Booking request created!", { id: toastId });
+    setStep(4);
+
+    setTimeout(() => {
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+    }, 1500);
   };
 
   return (

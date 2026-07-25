@@ -31,7 +31,8 @@ export async function POST(request: NextRequest) {
     });
 
     return response;
-  } catch {
-    return NextResponse.json({ error: "Server misconfiguration" }, { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Server misconfiguration";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
