@@ -15,42 +15,23 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.calcuttabackpackers.com"),
-  title: "Calcutta Backpackers | Best Poshtel & Budget Hostel in Kolkata",
+  title: "Calcutta Backpackers | Premium Boutique Hostel in Kolkata",
   description:
-    "Kolkata's top-rated poshtel — stylish dorms from ₹499/night, private rooms, free wifi, and WanderXP experiences (street food crawls, heritage walks, rooftop nights). Real value, zero pretension. Book direct on WhatsApp.",
-  keywords: [
-    "poshtel kolkata",
-    "hostel kolkata",
-    "budget hostel kolkata",
-    "cheap hostel kolkata",
-    "backpackers hostel kolkata",
-    "best hostel kolkata",
-    "hostel near sudder street",
-    "hostel near park street",
-    "dorms kolkata",
-    "private room kolkata cheap",
-    "solo travel kolkata",
-    "kolkata street food tour",
-    "heritage walk kolkata",
-    "things to do in kolkata",
-    "backpacking india",
-    "gen z travel kolkata",
-    "affordable stay kolkata",
-    "social hostel india",
-  ],
+    "The most awarded backpacker hostel in Kolkata. Experience authentic local culture, premium accommodations, and our famous WanderXP tours.",
+  keywords: ["backpackers kolkata", "hostel kolkata", "accommodation kolkata", "private rooms kolkata", "travel india"],
   icons: {
     icon: "/images/logo.png",
     shortcut: "/images/logo.png",
     apple: "/images/logo.png",
   },
   openGraph: {
-    title: "Calcutta Backpackers | Kolkata's Best Value Poshtel",
-    description: "Dorms from ₹499. Private rooms from ₹1,999. Free wifi, real community, and WanderXP experiences that don't feel like a tour. This is Kolkata, done right — and done affordable.",
+    title: "Calcutta Backpackers | Best Backpackers Hostel in Kolkata",
+    description: "The world's most awarded backpacker hostel. Premium dorms, private rooms & curated Kolkata experiences.",
     url: "https://www.calcuttabackpackers.com",
     siteName: "Calcutta Backpackers",
     images: [
       {
-        url: "/images/Community.webp",
+        url: "/images/hero-bg.png",
         width: 1200,
         height: 630,
       }
@@ -59,37 +40,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calcutta Backpackers | Kolkata's Best Value Poshtel",
-    description: "Dorms from ₹499. Free wifi, real community, and WanderXP experiences worth posting about. This is Kolkata, done right — and done affordable.",
-    images: ["/images/Community.webp"],
+    title: "Calcutta Backpackers | Premium Boutique Hostel in Kolkata",
+    description: "The world's most awarded backpacker hostel. Premium dorms, private rooms & curated Kolkata experiences.",
+    images: ["/images/hero-bg.png"],
   }
-};
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
-  "name": "Calcutta Backpackers",
-  "description": "A value-for-money poshtel in Kolkata offering dorms, private rooms, and curated WanderXP local experiences for backpackers and solo travelers.",
-  "url": "https://www.calcuttabackpackers.com",
-  "image": "https://www.calcuttabackpackers.com/images/Community.webp",
-  "priceRange": "₹399 - ₹3,499",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "6/27a, Pashupati Bhattacharya Road",
-    "addressLocality": "Kolkata",
-    "postalCode": "700034",
-    "addressCountry": "IN"
-  },
-  "telephone": "+91-98754-32441",
-  "email": "bookingcalcuttabackpackers@gmail.com",
-  "checkinTime": "14:00",
-  "checkoutTime": "11:00",
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Lockers", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Guided Local Experiences", "value": true }
-  ]
 };
 
 export default function RootLayout({
@@ -102,12 +56,6 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full antialiased`}
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </head>
       <body className="min-h-full flex flex-col font-sans bg-cream text-dark">
         <Toaster 
           position="top-right" 
@@ -126,4 +74,3 @@ export default function RootLayout({
     </html>
   );
 }
-

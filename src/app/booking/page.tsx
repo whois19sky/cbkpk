@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import BookingForm from "./BookingForm";
 
 export const metadata: Metadata = {
-  title: "Book Your Stay | Calcutta Backpackers Poshtel, Kolkata",
-  description: "Book dorms from ₹499 or private rooms from ₹1,999 direct with Calcutta Backpackers — best rate guaranteed, no OTA markup, confirmed over WhatsApp.",
+  title: "Book Your Stay | Calcutta Backpackers",
+  description: "Reserve your dorm or private room at Calcutta Backpackers. Best rates guaranteed when you book directly with us.",
 };
 
 export default function BookingPage() {
@@ -14,4 +14,3 @@ export default function BookingPage() {
     </Suspense>
   );
 }
-

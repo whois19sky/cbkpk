@@ -11,20 +11,20 @@ const WHATSAPP_LINK = "https://wa.me/919875432441?text=Hi%20Calcutta%20Backpacke
 const thingsToDo = [
   {
     title: "The Ultimate Street Food Crawl",
-    description: "Phuchka, kathi rolls, and cutting chai at dawn — the real Kolkata street food scene, not the tourist version. We take you to the stalls near New Market that locals have queued at for decades.",
-    image: "/images/Commonspace.webp",
+    description: "Taste Kolkata's legendary flavors. From phuchka and kathi rolls to cutting chai at dawn. We'll show you where the locals eat.",
+    image: "/images/bp_street.png",
     color: "bg-waabi-green/40",
   },
   {
     title: "Heritage & Architecture Walks",
-    description: "Crumbling colonial mansions, hidden courtyards, and North Kolkata's grand old palaces — the free walking tour every Gen Z traveler's Instagram grid is missing.",
-    image: "/images/Community.webp",
+    description: "Discover the colonial mansions, hidden courtyards, and crumbling grand palaces of North Kolkata.",
+    image: "/images/bp_community.png",
     color: "bg-waabi-bg",
   },
   {
     title: "The Social Evening Events",
-    description: "Rooftop music nights, 5pm chai sessions, and game nights with fellow travelers — daily, free, and honestly the best part of staying somewhere that actually wants you to hang out, not just sleep.",
-    image: "/images/Dorm1.webp",
+    description: "Join our daily hostel events! Rooftop music gigs, chai sessions, and game nights with fellow travelers.",
+    image: "/images/bp_dorm.png",
     color: "bg-white",
   },
 ];
@@ -109,4 +109,3 @@ export default function KolkataGuide() {
     </section>
   );
 }
-

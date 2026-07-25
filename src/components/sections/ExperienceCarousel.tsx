@@ -10,20 +10,20 @@ const experiences = [
   {
     title: "Street Food Crawl",
     category: "Culinary",
-    desc: "Kati rolls, phuchka, cutting chai at dawn — the food Kolkata actually eats, not what's in the guidebook. WanderXP takes you to the stalls locals queue for.",
-    img: "/images/Commonspace.webp",
+    desc: "Dive into Kolkata's legendary street food scene. Kati rolls, phuchka, and cutting chai.",
+    img: "/images/bp_street.png",
   },
   {
     title: "Heritage Walk",
     category: "Culture",
-    desc: "Crumbling colonial mansions, hidden courtyards, and the stories behind the City of Joy — on foot, with someone who actually grew up here.",
-    img: "/images/Community.webp",
+    desc: "Explore colonial architecture, hidden alleys, and the stories that built the City of Joy.",
+    img: "/images/bp_community.png",
   },
   {
     title: "The Social Feed",
     category: "Community",
-    desc: "Rooftop music nights, 5pm chai sessions, communal dinners with strangers who won't stay strangers. The stuff that makes a hostel worth staying at.",
-    img: "/images/Dorm1.webp",
+    desc: "Join our evening chai sessions, rooftop music gigs, and communal dinners.",
+    img: "/images/bp_dorm.png",
   },
 ];
 
@@ -58,11 +58,11 @@ export default function ExperienceCarousel() {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="heading-xl font-serif text-dark"
             >
-              WanderXP <span className="text-waabi-green-dark italic">Experiences.</span>
+              Curated <span className="text-waabi-green-dark italic">Experiences.</span>
             </motion.h2>
           </div>
           <Link href="/wanderxp" className="btn-outline hidden md:flex">
-            See All Experiences
+            View All Tours
           </Link>
         </div>
 
@@ -112,10 +112,9 @@ export default function ExperienceCarousel() {
         </div>
 
         <Link href="/wanderxp" className="btn-outline mt-12 flex md:hidden w-full">
-          See All Experiences
+          View All Tours
         </Link>
       </div>
     </section>
   );
 }
-

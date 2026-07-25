@@ -2,11 +2,10 @@ import { Metadata } from "next";
 import WanderXPClient from "./WanderXPClient";
 
 export const metadata: Metadata = {
-  title: "WanderXP | Kolkata Street Food Tours, Heritage Walks & Local Experiences",
-  description: "Real Kolkata, not the guidebook version. WanderXP experiences from Calcutta Backpackers: street food crawls, heritage walks, sunrise boat rides, and Kumartuli art tours — priced for backpackers, led by locals.",
+  title: "WanderXP Tours | Curated Local Adventures in Kolkata",
+  description: "Discover the hidden gems of Kolkata with WanderXP. From street food crawls to heritage walks, experience the real City of Joy.",
 };
 
 export default function WanderXPPage() {
   return <WanderXPClient />;
 }
-

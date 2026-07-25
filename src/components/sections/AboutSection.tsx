@@ -28,7 +28,7 @@ export default function AboutSection() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="heading-xl font-serif text-dark mb-16 md:mb-24 max-w-4xl leading-[1.1]"
         >
-          Good design, good people, good prices. Pick <span className="text-waabi-green-dark">three</span>.
+          A sanctuary for global travelers, built on <span className="text-waabi-green-dark">community</span>, culture & comfort.
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-center">
@@ -40,8 +40,8 @@ export default function AboutSection() {
             className="md:col-span-7 waabi-card relative h-[400px] md:h-[600px]"
           >
             <Image
-              src="/images/Community.webp"
-              alt="Common area at Calcutta Backpackers, Kolkata's poshtel for budget travelers"
+              src="/images/bp_community.png"
+              alt="Community at Calcutta Backpackers"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -57,23 +57,21 @@ export default function AboutSection() {
           >
             <div className="glass-panel p-8 md:p-10 bg-white/40">
               <p className="text-dark/80 text-lg leading-relaxed mb-6">
-                Since 2018, Calcutta Backpackers has been the place Kolkata&apos;s
-                backpackers actually recommend to each other —
-                the kind of place where a ₹499 dorm bed still gets you clean AC rooms,
-                fast wifi, and people who actually talk to you in the common area.
+                Founded in 2018, Calcutta Backpackers has evolved into Kolkata&apos;s
+                most celebrated hostel. We are a nexus where global travelers converge
+                to discover the authentic soul of the city.
               </p>
               <p className="text-dark/80 text-lg leading-relaxed mb-10">
-                No inflated &quot;boutique&quot; prices, no empty luxury talk. Just a
-                well-designed stay, a rooftop that fills up every evening, and WanderXP
-                experiences that get you further into the city than any guidebook will.
+                From our sunlit, aesthetic common areas to our curated WanderXP cultural
+                experiences, every element here is meticulously designed to foster connection.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/the-nest" className="btn-primary">
-                  Explore The Nest XP
+                  Explore The Nest
                 </Link>
                 <Link href="/wanderxp" className="btn-outline">
-                  WanderXP Experiences
+                  WanderXP Tours
                 </Link>
               </div>
             </div>
@@ -83,4 +81,3 @@ export default function AboutSection() {
     </section>
   );
 }
-

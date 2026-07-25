@@ -13,8 +13,8 @@ import Footer from "@/components/layout/Footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calcutta Backpackers | Best Value Poshtel in Kolkata (Dorms from ₹499)",
-  description: "Kolkata's top-rated poshtel for backpackers and solo travelers. AC dorms from ₹499, private rooms from ₹1,999, free wifi, and WanderXP local experiences — street food crawls, heritage walks, rooftop nights. Book direct, no hidden fees.",
+  title: "Calcutta Backpackers | Best Backpacker Hostel in Kolkata",
+  description: "Experience the ultimate stay in Kolkata with premium dorms, private rooms, and curated city tours at Calcutta Backpackers.",
 };
 
 export default function Home() {
@@ -35,4 +35,3 @@ export default function Home() {
     </>
   );
 }
-

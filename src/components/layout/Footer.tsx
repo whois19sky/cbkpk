@@ -23,7 +23,7 @@ export default function Footer() {
             </div>
             <div>
               <h3 className="text-dark font-serif text-2xl">Calcutta Backpackers</h3>
-              <p className="text-dark/90 text-sm mt-1">Kolkata's Best Value Stay</p>
+              <p className="text-dark/90 text-sm mt-1">The Premium Social Hostel</p>
             </div>
           </div>
           
@@ -43,8 +43,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row gap-12 md:gap-24">
           <div className="flex flex-col gap-4">
             <h4 className="text-dark font-semibold tracking-widest uppercase text-xs">Quick Links</h4>
-            <Link href="/the-nest" className="text-dark/90 hover:text-dark transition-colors font-medium">The Nest XP</Link>
-            <Link href="/wanderxp" className="text-dark/90 hover:text-dark transition-colors font-medium">WanderXP Experiences</Link>
+            <Link href="/the-nest" className="text-dark/90 hover:text-dark transition-colors font-medium">The Nest</Link>
+            <Link href="/wanderxp" className="text-dark/90 hover:text-dark transition-colors font-medium">WanderXP Tours</Link>
             <Link href="/booking" className="text-dark/90 hover:text-dark transition-colors font-medium">Book a Stay</Link>
             <Link href="/checkin" className="text-dark/90 hover:text-dark transition-colors font-medium">Web Check-in</Link>
           </div>
@@ -68,7 +68,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="pt-8 border-t border-dark/10 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="text-dark/60 text-sm font-medium">
-          © {new Date().getFullYear()} Calcutta Backpackers — Kolkata's Best Value Hostel for Backpackers
+          © {new Date().getFullYear()} Calcutta Backpackers — The Best Backpackers Hostel in Kolkata
         </div>
 
         <Link
@@ -81,4 +81,3 @@ export default function Footer() {
     </motion.footer>
   );
 }
-

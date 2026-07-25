@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 
 const words = [
-  "No Hidden Fees",
-  "WanderXP Experiences",
+  "Boutique Hostel",
+  "WanderXP Tours",
   "Heritage Walks",
   "The Social Feed",
-  "Best Value in Kolkata",
+  "Community",
   "Kolkata",
   "Backpackers",
   "Capsule Dorms",
@@ -37,4 +37,3 @@ export default function MarqueeStrip() {
     </div>
   );
 }
-

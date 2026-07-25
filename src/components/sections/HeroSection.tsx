@@ -12,18 +12,18 @@ const VIDEO_URL = "https://videos.pexels.com/video-files/4874712/4874712-uhd_384
 const slides = [
   {
     id: 1,
-    title: "Kolkata, but make it affordable.",
-    subtitle: "Dorms from ₹499. Clean rooms, real community, zero markup for the sake of it.",
+    title: "Stay, Explore, Connect.",
+    subtitle: "Premium backpacker hostel right in the heart of Kolkata.",
   },
   {
     id: 2,
-    title: "Sleep well, spend less.",
-    subtitle: "AC dorms, private rooms, and clean bathrooms — priced like they're meant to be used, not admired.",
+    title: "Rest in Signature Style.",
+    subtitle: "From private rooms to capsule bunks, we have your perfect stay.",
   },
   {
     id: 3,
-    title: "Don't just visit. Wander.",
-    subtitle: "Street food crawls, heritage walks, rooftop nights — WanderXP gets you the city, not a checklist.",
+    title: "Wander Through Heritage.",
+    subtitle: "Join our expert local guides for unforgettable city tours.",
   },
 ];
 
@@ -40,9 +40,9 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[100svh] w-full">
+    <section id="home" className="relative h-[100svh] w-full overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted={isMuted}
@@ -56,7 +56,7 @@ export default function HeroSection() {
         </video>
         {/* Fallback gradient if video doesn't load */}
         {!videoLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#12314F] via-[#1E4E78] to-[#0B1F33]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1A3A3A] via-[#2a5a4a] to-[#1a2a2a]" />
         )}
         {/* Overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/50 to-dark/30" />
@@ -73,7 +73,7 @@ export default function HeroSection() {
       </button>
 
       {/* Content */}
-      <div className="relative z-20 min-h-[100svh] max-w-[1400px] mx-auto px-6 md:px-10 py-28 md:py-32 flex flex-col justify-center">
+      <div className="relative z-20 h-full max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col justify-center">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between w-full gap-8">
           <div className="max-w-2xl">
             {/* Badge */}
@@ -87,10 +87,8 @@ export default function HeroSection() {
               Welcome to Calcutta
             </motion.div>
 
-            {/* Sliding Text — CSS Grid stacking keeps the container sized to whichever
-                slide is actually showing, instead of a guessed min-height, so long
-                titles can never overflow into the section below. */}
-            <div className="relative grid">
+            {/* Sliding Text */}
+            <div className="relative min-h-[190px] xs:min-h-[220px] sm:min-h-[200px] md:min-h-[240px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
@@ -98,7 +96,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="col-start-1 row-start-1 will-change-transform"
+                  className="absolute inset-0 will-change-transform"
                 >
                   <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-medium text-white mb-4 xs:mb-6 leading-[1.1] sm:leading-[1.05] tracking-tight drop-shadow-lg">
                     {slides[currentSlide].title}
@@ -118,7 +116,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0 pb-4 md:pb-12"
           >
-            <Link href="/booking" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-waabi-green text-dark font-semibold rounded-full hover:bg-waabi-green-dark hover:scale-105 transition-all duration-300 shadow-[0_8px_30px_rgba(201,222,240,0.4)]">
+            <Link href="/booking" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-waabi-green text-dark font-semibold rounded-full hover:bg-waabi-green-dark hover:scale-105 transition-all duration-300 shadow-[0_8px_30px_rgba(209,226,196,0.4)]">
               Book Now <ArrowRight size={18} />
             </Link>
             <Link href="/checkin" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300">
@@ -164,4 +162,3 @@ export default function HeroSection() {
     </section>
   );
 }
-

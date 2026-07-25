@@ -29,7 +29,7 @@ export default function ContactSection() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="heading-xl font-serif text-dark mb-16 md:mb-24"
         >
-          Ready to <span className="italic text-waabi-green-dark">book smart?</span>
+          Ready to <span className="italic text-waabi-green-dark">explore?</span>
         </motion.h2>
 
         {/* Grid */}
@@ -43,7 +43,7 @@ export default function ContactSection() {
             className="md:col-span-2 relative h-[400px] md:h-[450px] waabi-card group"
           >
             <Image
-              src="/images/Community.webp"
+              src="/images/bp_community.png"
               alt="Book your stay"
               fill
               className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -53,11 +53,11 @@ export default function ContactSection() {
             
             <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-10">
               <h3 className="font-serif text-3xl md:text-4xl text-white mb-4">
-                Book direct, pay less
+                Book your adventure
               </h3>
               <p className="text-white/80 mb-8 max-w-md">
-                Skip the OTA markup — book straight with us for the best rate,
-                no hidden fees, and a WhatsApp line that actually replies.
+                Reserve your bed or room directly for the best rates and
+                exclusive perks. Your Kolkata story starts here.
               </p>
               <Link
                 href="/booking"
@@ -146,4 +146,3 @@ export default function ContactSection() {
     </section>
   );
 }
-

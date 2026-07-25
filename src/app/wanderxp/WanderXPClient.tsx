@@ -51,15 +51,15 @@ export default function WanderXPPage() {
       <Navbar />
       
       {/* Hero */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden" style={{ background: '#12314F' }}>
+      <section className="relative h-[70vh] min-h-[500px] overflow-hidden" style={{ background: '#1A3A3A' }}>
         <Image
-          src="/images/Commonspace.webp"
+          src="/images/bp_street.png"
           alt="WanderXP Adventures"
           fill
           className="object-cover opacity-30 mix-blend-luminosity"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#12314F] via-[#12314F]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A3A3A] via-[#1A3A3A]/60 to-transparent" />
         <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col justify-end pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ export default function WanderXPPage() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl md:text-7xl font-serif font-medium text-white mb-6 max-w-3xl"
           >
-            Real Kolkata, <span className="text-waabi-green italic">no filter.</span>
+            Curated local <span className="text-waabi-green italic">adventures.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ export default function WanderXPPage() {
             transition={{ delay: 0.3 }}
             className="text-white/60 text-lg max-w-xl"
           >
-            Street food crawls, heritage walks, rooftop nights — priced for backpackers, led by people who actually live here. This is WanderXP.
+            Guided city tours designed for backpackers seeking genuine local experiences and hidden gems. Explore the real Kolkata.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -169,7 +169,7 @@ export default function WanderXPPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-[#12314F] text-white">
+      <section className="py-24 md:py-32 bg-[#1A3A3A] text-white">
         <div className="max-w-[1000px] mx-auto px-6 md:px-10 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
@@ -177,15 +177,15 @@ export default function WanderXPPage() {
             viewport={{ once: true }}
             className="heading-lg font-serif mb-6"
           >
-            Ready to go <span className="text-waabi-green italic">explore?</span>
+            Ready for an <span className="text-waabi-green italic">adventure?</span>
           </motion.h2>
           <p className="text-white/60 text-lg mb-10 max-w-lg mx-auto">
-            Message us on WhatsApp to book an experience or ask us to build a custom one — no travel agency fees, just a straight answer.
+            Message us on WhatsApp to book your experience or create a custom tour just for you.
           </p>
           <Link
             href="https://wa.me/919875432441?text=Hi%20Calcutta%20Backpackers!%20I'd%20like%20to%20know%20more%20about%20WanderXP%20tours."
             target="_blank"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-waabi-green text-dark font-semibold rounded-full hover:bg-waabi-green-dark hover:scale-105 transition-all duration-300 shadow-[0_8px_30px_rgba(201,222,240,0.3)]"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-waabi-green text-dark font-semibold rounded-full hover:bg-waabi-green-dark hover:scale-105 transition-all duration-300 shadow-[0_8px_30px_rgba(209,226,196,0.3)]"
           >
             Book on WhatsApp <ArrowRight size={18} />
           </Link>
@@ -196,4 +196,3 @@ export default function WanderXPPage() {
     </>
   );
 }
-

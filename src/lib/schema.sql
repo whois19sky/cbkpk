@@ -150,19 +150,19 @@ ALTER TABLE site_settings DISABLE ROW LEVEL SECURITY;
 
 -- Rooms
 INSERT INTO rooms (name, slug, tagline, description, price_per_night, capacity, features, images, sort_order) VALUES
-('The Social Dorms', 'social-dorms', 'Best Value. Zero Cap.', 'Capsule-style bunks with privacy curtains, your own reading light, and a locker that actually locks. Built for people who want a good night''s sleep without the price tag.', 499, 8, '["Air Conditioned", "Privacy Curtains", "Personal Lockers", "Free WiFi", "Reading Lights", "Charging Ports"]', '["/images/Dorm1.webp"]', 1),
-('Private Ensuite', 'private-ensuite', 'Privacy, Priced Fair.', 'Your own room, your own bathroom, a proper bed — for less than you''d pay for a mid-range hotel with none of the character. Good light, good desk, good wifi.', 1999, 2, '["En-suite Bathroom", "King Size Bed", "Work Desk", "City View", "Air Conditioned", "Free WiFi"]', '["/images/private room.webp"]', 2),
-('Bunk Beds', 'bunk-beds', 'The Cheapest Good Night''s Sleep in Kolkata.', 'Simple, clean bunk beds in a shared space — for backpackers who''d rather spend on experiences than on a room. Still AC. Still secure. Still comfortable.', 399, 6, '["Air Conditioned", "Shared Bathroom", "Personal Lockers", "Free WiFi"]', '["/images/Dorm1.webp"]', 3),
-('Deluxe Apartment', 'deluxe-apartment', 'For Groups, Long Stays & Real Kitchens.', 'A fully furnished apartment with a real kitchen, living room, and washing machine — ideal for longer stays, digital nomads, or a group splitting the bill.', 3499, 4, '["Full Kitchen", "Living Room", "Washing Machine", "Smart TV", "Air Conditioned", "Free WiFi"]', '["/images/private1.webp"]', 4)
+('The Social Dorms', 'social-dorms', 'Social. Secure. Smart.', 'Premium capsule-style bunks with privacy curtains, personal reading lights, and secure lockers. Built for community and comfort.', 499, 8, '["Air Conditioned", "Privacy Curtains", "Personal Lockers", "Free WiFi", "Reading Lights", "Charging Ports"]', '["/images/Dorm1.webp"]', 1),
+('Private Ensuite', 'private-ensuite', 'Your Personal Retreat.', 'A gorgeous private sanctuary featuring a king-size bed, en-suite bathroom, and dedicated workspace with plenty of natural light.', 1999, 2, '["En-suite Bathroom", "King Size Bed", "Work Desk", "City View", "Air Conditioned", "Free WiFi"]', '["/images/private room.webp"]', 2),
+('Bunk Beds', 'bunk-beds', 'Budget Friendly. Community Driven.', 'Comfortable bunk beds in a shared space perfect for budget travelers looking to connect with fellow adventurers.', 399, 6, '["Air Conditioned", "Shared Bathroom", "Personal Lockers", "Free WiFi"]', '["/images/Dorm1.webp"]', 3),
+('Deluxe Apartment', 'deluxe-apartment', 'Home Away From Home.', 'Fully furnished apartment with kitchen, living area, and premium amenities. Perfect for extended stays and families.', 3499, 4, '["Full Kitchen", "Living Room", "Washing Machine", "Smart TV", "Air Conditioned", "Free WiFi"]', '["/images/private1.webp"]', 4)
 ON CONFLICT (slug) DO NOTHING;
 
 -- Experiences
 INSERT INTO experiences (title, slug, category, description, image, price, duration, sort_order) VALUES
-('Street Food Crawl', 'street-food-crawl', 'Culinary', 'Phuchka, kathi rolls, cutting chai at dawn — the real Kolkata street food scene, not the tourist version. We take you to the stalls near New Market that locals have queued at for decades.', '/images/bp_street.png', 799, '3 hours', 1),
-('Heritage Walk', 'heritage-walk', 'Culture', 'Crumbling colonial mansions, hidden courtyards, and North Kolkata''s grand old palaces — the free walking tour every Gen Z traveler''s Instagram grid is missing.', '/images/bp_community.png', 599, '4 hours', 2),
-('The Social Evening', 'social-evening', 'Community', 'Rooftop music nights, 5pm chai sessions, and communal dinners with fellow travelers — daily, free, and honestly the best part of staying at a poshtel instead of a hotel.', '/images/bp_dorm.png', 0, '2 hours', 3),
-('Kumartuli Art District', 'kumartuli-art', 'Culture', 'Kolkata''s famous idol-making quarter — watch artisans hand-sculpt clay idols the traditional way, a scene most tourists never even hear about.', '/images/Community.webp', 499, '2.5 hours', 4),
-('Sunrise Boat Ride', 'sunrise-boat-ride', 'Adventure', 'A scenic boat ride along the Hooghly River at dawn — the cheapest, calmest way to see Kolkata wake up.', '/images/Commonspace.webp', 699, '2 hours', 5)
+('Street Food Crawl', 'street-food-crawl', 'Culinary', 'Dive into Kolkata''s legendary street food scene. Kati rolls, phuchka, and cutting chai. We''ll show you where the locals eat.', '/images/bp_street.png', 799, '3 hours', 1),
+('Heritage Walk', 'heritage-walk', 'Culture', 'Explore colonial architecture, hidden alleys, and the stories that built the City of Joy. Walk through North Kolkata''s grand mansions.', '/images/bp_community.png', 599, '4 hours', 2),
+('The Social Evening', 'social-evening', 'Community', 'Join our evening chai sessions, rooftop music gigs, and communal dinners with fellow travelers from around the world.', '/images/bp_dorm.png', 0, '2 hours', 3),
+('Kumartuli Art District', 'kumartuli-art', 'Culture', 'Visit the famous idol-making quarter of Kumartuli and witness artisans crafting stunning clay sculptures.', '/images/Community.webp', 499, '2.5 hours', 4),
+('Sunrise Boat Ride', 'sunrise-boat-ride', 'Adventure', 'Relax on scenic boat tours along the Hooghly River that reveal the city from a fresh perspective at dawn.', '/images/Commonspace.webp', 699, '2 hours', 5)
 ON CONFLICT (slug) DO NOTHING;
 
 -- Gallery Images
@@ -187,9 +187,9 @@ ON CONFLICT DO NOTHING;
 
 -- Blog Posts
 INSERT INTO blog_posts (title, slug, excerpt, content, author, category, is_published, published_at) VALUES
-('Welcome to Calcutta Backpackers: Your Guide to Kolkata''s Best Value Poshtel', 'welcome-to-the-family-your-insider-guide-to-calcutta-backpackers', 'Everything you need to know before you check in - from getting here to what makes this Kolkata''s best value poshtel for backpackers.', '# Welcome to Calcutta Backpackers!
+('Welcome to the Family: Your Insider Guide to Calcutta Backpackers', 'welcome-to-the-family-your-insider-guide-to-calcutta-backpackers', 'Your essential guide to staying at the best hostel in Kolkata.', '# Welcome to Calcutta Backpackers!
 
-Welcome to the poshtel! Whether you''re a seasoned backpacker counting rupees or this is your first hostel stay, here''s everything you need to settle in fast.
+Welcome to the family! Whether you''re a seasoned backpacker or this is your first hostel experience, we''re thrilled to have you.
 
 ## Getting Here
 
@@ -197,7 +197,7 @@ We''re located at **6/27a, Pashupati Bhattacharya Road, Kolkata 700034**, just m
 
 ## The Social
 
-Our common area, **The Social**, is the heart of the hostel - free, daily, and where most of the good stories start. Here you''ll find:
+Our common area, **The Social**, is the heart of the hostel. Here you''ll find:
 - Daily chai sessions at 5 PM
 - Weekly music nights every Saturday
 - A curated library of travel books
@@ -205,10 +205,10 @@ Our common area, **The Social**, is the heart of the hostel - free, daily, and w
 
 ## WanderXP Tours
 
-Our **WanderXP** experiences are priced for backpackers and built to get you past the guidebook version of Kolkata:
-- **Street Food Crawl** — Phuchka, kati rolls, and cutting chai at the stalls locals actually queue at
-- **Heritage Walk** — Colonial mansions, hidden courtyards, and the real stories behind North Kolkata
-- **Kumartuli Art District** — Watch artisans hand-sculpt clay idols the traditional way
+Our exclusive **WanderXP** tours are designed to give you an authentic Kolkata experience:
+- **Street Food Crawl** — Taste the city''s legendary cuisine
+- **Heritage Walk** — Explore colonial architecture and hidden stories
+- **Kumartuli Art District** — Watch artisans create stunning clay sculptures
 
 ## House Rules
 
@@ -217,9 +217,9 @@ Our **WanderXP** experiences are priced for backpackers and built to get you pas
 3. No outside food in dorms
 4. Be respectful of fellow travelers
 
-## Why a Poshtel, Not a Hotel
+## Sustainable Tourism
 
-We keep prices honest - dorms from Rs.399, private rooms from Rs.1,999 - because we''d rather you spend on experiences than on a room. Good design and good value aren''t mutually exclusive, and that''s the whole idea here.
+We''re committed to sustainable tourism. We use eco-friendly products, minimize waste, and support local businesses and artisans through our tours.
 
 See you soon! 🙏', 'Sky', 'Guide', true, now())
 ON CONFLICT (slug) DO NOTHING;
@@ -228,6 +228,5 @@ ON CONFLICT (slug) DO NOTHING;
 INSERT INTO site_settings (key, value) VALUES
 ('contact', '{"phone": "+919875432441", "email": "bookingcalcuttabackpackers@gmail.com", "address": "6/27a, Pashupati Bhattacharya Road, Kolkata 700034", "whatsapp": "+919875432441"}'::jsonb),
 ('social', '{"instagram": "https://www.instagram.com/calcuttabackpackers/", "facebook": "https://www.facebook.com/", "tiktok": "https://tiktok.com/"}'::jsonb),
-('hero', '{"video_url": "https://videos.pexels.com/video-files/4874712/4874712-uhd_3840_2160_25fps.mp4", "tagline": "Welcome to the Poshtel"}'::jsonb)
+('hero', '{"video_url": "https://videos.pexels.com/video-files/4874712/4874712-uhd_3840_2160_25fps.mp4", "tagline": "Welcome to Calcutta"}'::jsonb)
 ON CONFLICT (key) DO NOTHING;
-

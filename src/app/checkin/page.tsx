@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import CheckinForm from "./CheckinForm";
 
 export const metadata: Metadata = {
-  title: "Web Check-in | Calcutta Backpackers Poshtel, Kolkata",
-  description: "Skip the front-desk wait — complete your check-in online before you arrive at Calcutta Backpackers.",
+  title: "Check-in | Calcutta Backpackers",
+  description: "Complete your online check-in securely before arriving at Calcutta Backpackers.",
 };
 
 export default function CheckinPage() {
@@ -14,4 +14,3 @@ export default function CheckinPage() {
     </Suspense>
   );
 }
-

@@ -9,11 +9,11 @@ import Footer from "@/components/layout/Footer";
 
 const socialPosts = [
   { image: "/images/Community.webp", caption: "Community vibes at its best" },
-  { image: "/images/Community.webp", caption: "Travelers from 50+ countries" },
+  { image: "/images/bp_community.png", caption: "Travelers from 50+ countries" },
   { image: "/images/Commonspace.webp", caption: "Our sunlit common space" },
   { image: "/images/Community1.webp", caption: "Evening chai sessions" },
-  { image: "/images/Dorm1.webp", caption: "₹499 dorms that don't feel like ₹499" },
-  { image: "/images/corridor1.webp", caption: "Good design, honest prices" },
+  { image: "/images/Dorm1.webp", caption: "Premium dorm experience" },
+  { image: "/images/corridor1.webp", caption: "Aesthetic corridors" },
 ];
 
 export default function TheSocialPage() {
@@ -141,4 +141,3 @@ export default function TheSocialPage() {
     </>
   );
 }
-

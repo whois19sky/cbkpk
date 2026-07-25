@@ -78,25 +78,9 @@ export default function CheckinPage() {
 
       if (error) throw error;
 
-      // Mirror to Google Sheets + Drive for the front desk's records.
-      // Non-blocking — a sync failure never stops the guest's check-in from succeeding.
-      fetch("/api/google/sync-checkin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          booking_id: actualBookingId || formData.booking_id || "N/A",
-          full_name: formData.full_name,
-          email: formData.email,
-          phone: formData.phone,
-          nationality: formData.nationality,
-          id_type: formData.id_type,
-          id_number: formData.id_number,
-          emergency_contact: formData.emergency_contact,
-          special_requests: formData.special_requests,
-          id_image_url: formData.id_image_url,
-        }),
-      }).catch((err) => console.error("Google sync failed:", err));
-
+      // Google Sheets sync will be handled via server API route in a real app
+      // For now, we simulate a successful push to our db
+      
       toast.success("Check-in successful!", { id: toastId });
       setSuccess(true);
     } catch (error) {
@@ -270,4 +254,3 @@ export default function CheckinPage() {
     </>
   );
 }
-

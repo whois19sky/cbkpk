@@ -188,4 +188,3 @@ export default function CheckinsManager() {
     </div>
   );
 }
-

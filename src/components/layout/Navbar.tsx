@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "The Nest XP", href: "/the-nest" },
+  { name: "The Nest", href: "/the-nest" },
   { name: "WanderXP", href: "/wanderxp" },
   { name: "The Social", href: "/the-social" },
   { name: "Blog", href: "/blog" },
@@ -156,4 +156,3 @@ export default function Navbar() {
     </header>
   );
 }
-

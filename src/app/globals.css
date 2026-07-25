@@ -1,13 +1,11 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @theme {
-  --breakpoint-xs: 475px;
   --color-primary: #1a1a1a;
   --color-waabi-bg: #f9f7f1;
-  --color-waabi-green: #c9def0;
-  --color-waabi-green-dark: #8fb8dc;
-  --color-waabi-accent: #e7f0f7;
+  --color-waabi-green: #d1e2c4;
+  --color-waabi-green-dark: #b8ccaa;
+  --color-waabi-accent: #f0ece1;
   --color-white: #ffffff;
   --color-dark: #121212;
   --color-dark-soft: #2a2a2a;
@@ -27,7 +25,7 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #c9def0 transparent;
+  scrollbar-color: #d1e2c4 transparent;
 }
 
 body {
@@ -41,10 +39,10 @@ body {
 
 body::-webkit-scrollbar { width: 6px; }
 body::-webkit-scrollbar-track { background: transparent; }
-body::-webkit-scrollbar-thumb { background: #c9def0; border-radius: 10px; }
+body::-webkit-scrollbar-thumb { background: #d1e2c4; border-radius: 10px; }
 
 ::selection {
-  background: #c9def0;
+  background: #d1e2c4;
   color: #121212;
 }
 
@@ -84,7 +82,7 @@ body::-webkit-scrollbar-thumb { background: #c9def0; border-radius: 10px; }
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background: #c9def0;
+  background: #d1e2c4;
   color: #121212;
   font-size: 0.9rem;
   font-weight: 500;
@@ -98,7 +96,7 @@ body::-webkit-scrollbar-thumb { background: #c9def0; border-radius: 10px; }
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 8px 24px rgba(209, 226, 196, 0.6);
-  background: #8fb8dc;
+  background: #b8ccaa;
 }
 
 .btn-outline {

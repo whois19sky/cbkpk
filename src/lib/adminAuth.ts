@@ -69,12 +69,9 @@ export async function verifySessionToken(token: string | undefined): Promise<boo
 export function checkCredentials(email: string, password: string): boolean {
   const validEmail = process.env.ADMIN_EMAIL;
   const validPassword = process.env.ADMIN_PASSWORD;
-  const missing: string[] = [];
-  if (!validEmail) missing.push("ADMIN_EMAIL");
-  if (!validPassword) missing.push("ADMIN_PASSWORD");
-  if (missing.length > 0) {
+  if (!validEmail || !validPassword) {
     throw new Error(
-      `Missing required environment variable(s) on the server: ${missing.join(", ")}. Set these in your hosting platform's environment variables (not just .env.local) and redeploy.`
+      "ADMIN_EMAIL / ADMIN_PASSWORD are not set in environment variables."
     );
   }
   return email === validEmail && password === validPassword;
@@ -82,4 +79,3 @@ export function checkCredentials(email: string, password: string): boolean {
 
 export const ADMIN_COOKIE_NAME = COOKIE_NAME;
 export const ADMIN_SESSION_MAX_AGE_SECONDS = SESSION_DURATION_MS / 1000;
-
