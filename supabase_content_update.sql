@@ -71,3 +71,4 @@ WHERE key = 'hero';
 -- SELECT slug, title FROM blog_posts;
 -- SELECT key, value FROM site_settings WHERE key = 'hero';
 -- ============================================================
+

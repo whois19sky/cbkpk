@@ -230,3 +230,4 @@ INSERT INTO site_settings (key, value) VALUES
 ('social', '{"instagram": "https://www.instagram.com/calcuttabackpackers/", "facebook": "https://www.facebook.com/", "tiktok": "https://tiktok.com/"}'::jsonb),
 ('hero', '{"video_url": "https://videos.pexels.com/video-files/4874712/4874712-uhd_3840_2160_25fps.mp4", "tagline": "Welcome to the Poshtel"}'::jsonb)
 ON CONFLICT (key) DO NOTHING;
+

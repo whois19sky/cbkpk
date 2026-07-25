@@ -100,3 +100,4 @@ export type SiteSetting = {
   key: string
   value: Record<string, unknown>
 }
+

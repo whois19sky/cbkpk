@@ -102,3 +102,4 @@ export async function appendCheckinRow(checkin: {
   ];
   await appendRow("Check-ins", headers, row);
 }
+

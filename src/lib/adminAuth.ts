@@ -82,3 +82,4 @@ export function checkCredentials(email: string, password: string): boolean {
 
 export const ADMIN_COOKIE_NAME = COOKIE_NAME;
 export const ADMIN_SESSION_MAX_AGE_SECONDS = SESSION_DURATION_MS / 1000;
+

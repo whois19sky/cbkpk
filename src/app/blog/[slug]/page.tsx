@@ -54,3 +54,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function BlogPostPage() {
   return <BlogPostClient />;
 }
+

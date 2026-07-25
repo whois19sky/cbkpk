@@ -19,3 +19,4 @@ async function testConnection() {
 testConnection();
 
 module.exports = supabase;
+

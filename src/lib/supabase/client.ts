@@ -29,3 +29,4 @@ export const uploadFileToStorage = async (file: File, bucket: string = 'uploads'
 
   return data.publicUrl;
 };
+
